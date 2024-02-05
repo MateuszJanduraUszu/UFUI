@@ -5,6 +5,6 @@
 
 #define BENCHMARK_STATIC_DEFINE
 #include <benchmark/benchmark.h>
-#include <benchmarks/color_cvt.hpp>
+#include <benchmarks/ure/color_cvt.hpp>
 
 BENCHMARK_MAIN();

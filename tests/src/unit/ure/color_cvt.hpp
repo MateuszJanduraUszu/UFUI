@@ -4,8 +4,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 #pragma once
-#ifndef _TEST_UNIT_COLOR_CVT_HPP_
-#define _TEST_UNIT_COLOR_CVT_HPP_
+#ifndef _TEST_UNIT_URE_COLOR_CVT_HPP_
+#define _TEST_UNIT_URE_COLOR_CVT_HPP_
 #include <gtest/gtest.h>
 #include <ure/color.hpp>
 
@@ -87,4 +87,4 @@ namespace mjx {
     } // namespace test
 } // namespace mjx
 
-#endif // _TEST_UNIT_COLOR_CVT_HPP_
+#endif // _TEST_UNIT_URE_COLOR_CVT_HPP_
