@@ -1,11 +1,11 @@
-// color.hpp
+// color_cvt.hpp
 
 // Copyright (c) Mateusz Jandura. All rights reserved.
 // SPDX-License-Identifier: Apache-2.0
 
 #pragma once
-#ifndef _BENCH_BENCHMARKS_COLOR_HPP_
-#define _BENCH_BENCHMARKS_COLOR_HPP_
+#ifndef _BENCH_BENCHMARKS_URE_COLOR_CVT_HPP_
+#define _BENCH_BENCHMARKS_URE_COLOR_CVT_HPP_
 #include <benchmark/benchmark.h>
 #include <ure/color.hpp>
 #include <random>
@@ -53,4 +53,4 @@ namespace mjx {
     } // namespace bench
 } // namespace mjx
 
-#endif // _BENCH_BENCHMARKS_COLOR_HPP_
+#endif // _BENCH_BENCHMARKS_URE_COLOR_CVT_HPP_
