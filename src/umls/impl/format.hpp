@@ -99,6 +99,19 @@ namespace mjx {
             // format specifier's length is always 3 ('{%' and '}') + the number of index digits
             return _Fmt_spec{_Off, 3 + _Idx._Digits, _Chars_to_index(_Idx._Chars, _Idx._Digits)};
         }
+
+        inline size_t _Calculate_args_length(const format_args& _Args) noexcept {
+            size_t _Length = 0;
+            for (size_t _Idx = 0; _Idx < _Args.count(); ++_Idx) {
+                _Length += _Args.get(_Idx).size();
+            }
+
+            return _Length;
+        }
+
+        inline size_t _Estimate_formatted_string_length(const size_t _Fmt_size, const format_args& _Args) noexcept {
+            return _Fmt_size + _Calculate_args_length(_Args);
+        }
     } // namespace umls_impl
 } // namespace mjx
 
