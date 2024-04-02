@@ -4,10 +4,10 @@
 // SPDX-License-Identifier: Apache-2.0
 
 #pragma once
-#ifndef _BENCH_BENCHMARKS_ULS_STRING_FMT_HPP_
-#define _BENCH_BENCHMARKS_ULS_STRING_FMT_HPP_
+#ifndef _BENCH_BENCHMARKS_UMLS_STRING_FMT_HPP_
+#define _BENCH_BENCHMARKS_UMLS_STRING_FMT_HPP_
 #include <benchmark/benchmark.h>
-#include <uls/format.hpp>
+#include <umls/format.hpp>
 
 namespace mjx {
     namespace bench {
@@ -63,4 +63,4 @@ namespace mjx {
     } // namespace bench
 } // namespace mjx
 
-#endif // _BENCH_BENCHMARKS_ULS_STRING_FMT_HPP_
+#endif // _BENCH_BENCHMARKS_UMLS_STRING_FMT_HPP_

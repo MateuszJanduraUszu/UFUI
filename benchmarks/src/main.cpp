@@ -5,7 +5,7 @@
 
 #define BENCHMARK_STATIC_DEFINE
 #include <benchmark/benchmark.h>
-#include <benchmarks/uls/string_fmt.hpp>
+#include <benchmarks/umls/string_fmt.hpp>
 #include <benchmarks/ure/color_cvt.hpp>
 
 BENCHMARK_MAIN();
