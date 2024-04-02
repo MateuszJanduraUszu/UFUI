@@ -58,15 +58,15 @@ namespace mjx {
             return unicode_string{};
         }
 
-        unicode_string _Fmt_str;
-        _Fmt_str.reserve(umls_impl::_Estimate_formatted_string_length(_Fmt.size(), _Args));
+        unicode_string _Str;
+        _Str.reserve(umls_impl::_Estimate_formatted_string_length(_Fmt.size(), _Args));
         const wchar_t* _First      = _Fmt.data();
         const wchar_t* const _Last = _First + _Fmt.size();
         umls_impl::_Fmt_spec _Spec;
         for (;;) {
             _Spec = umls_impl::_Find_format_spec(_First, _Last);
             if (!_Spec._Found()) { // no more format specifiers, append the rest of the string and break
-                _Fmt_str.append(_First, _Last - _First);
+                _Str.append(_First, _Last - _First);
                 break;
             }
 
@@ -74,12 +74,12 @@ namespace mjx {
                 return unicode_string{};
             }
 
-            _Fmt_str.append(_First, _Spec._Off); // append the substring that is before the format specifier
-            _Fmt_str.append(_Args.get(_Spec._Idx)); // append the requested argument
+            _Str.append(_First, _Spec._Off); // append the substring that is before the format specifier
+            _Str.append(_Args.get(_Spec._Idx)); // append the requested argument
             _First += _Spec._Off + _Spec._Len; // skip the format specifier
         }
 
-        _Fmt_str.shrink_to_fit(); // free unused memory
-        return ::std::move(_Fmt_str);
+        _Str.shrink_to_fit(); // free unused memory
+        return ::std::move(_Str);
     }
 } // namespace mjx
