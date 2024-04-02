@@ -3,7 +3,7 @@
 // Copyright (c) Mateusz Jandura. All rights reserved.
 // SPDX-License-Identifier: Apache-2.0
 
-#include <uls/impl/tinywin.hpp>
+#include <umls/impl/tinywin.hpp>
 
 int __stdcall DllMain(HMODULE _Module, unsigned long _Reason, void*) {
 #if defined(_M_X64) || defined(_M_IX86)

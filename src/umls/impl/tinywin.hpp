@@ -4,10 +4,10 @@
 // SPDX-License-Identifier: Apache-2.0
 
 #pragma once
-#ifndef _ULS_IMPL_TINYWIN_HPP_
-#define _ULS_IMPL_TINYWIN_HPP_
+#ifndef _UMLS_IMPL_TINYWIN_HPP_
+#define _UMLS_IMPL_TINYWIN_HPP_
 
 #define WIN32_LEAN_AND_MEAN
 #define NOSERVICE
 #include <Windows.h>
-#endif // _ULS_IMPL_TINYWIN_HPP_
+#endif // _UMLS_IMPL_TINYWIN_HPP_

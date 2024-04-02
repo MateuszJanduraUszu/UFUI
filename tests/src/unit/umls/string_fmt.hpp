@@ -4,10 +4,10 @@
 // SPDX-License-Identifier: Apache-2.0
 
 #pragma once
-#ifndef _TEST_UNIT_ULS_STRING_FMT_HPP_
-#define _TEST_UNIT_ULS_STRING_FMT_HPP_
+#ifndef _TEST_UNIT_UMLS_STRING_FMT_HPP_
+#define _TEST_UNIT_UMLS_STRING_FMT_HPP_
 #include <gtest/gtest.h>
-#include <uls/format.hpp>
+#include <umls/format.hpp>
 
 namespace mjx {
     namespace test {
@@ -117,16 +117,16 @@ namespace mjx {
         }
 
         TEST(string_fmt, format_empty) {
-            EXPECT_EQ(::mjx::format_string(L"", ::mjx::format_args{}), L"");
-            EXPECT_EQ(::mjx::format_string(L"", ::mjx::format_args{}), L"");
-            EXPECT_EQ(::mjx::format_string(L"", ::mjx::format_args{}), L"");
-            EXPECT_EQ(::mjx::format_string(L"", ::mjx::format_args{}), L"");
-            EXPECT_EQ(::mjx::format_string(L"", ::mjx::format_args{}), L"");
-            EXPECT_EQ(::mjx::format_string(L"", ::mjx::format_args{}), L"");
-            EXPECT_EQ(::mjx::format_string(L"", ::mjx::format_args{}), L"");
-            EXPECT_EQ(::mjx::format_string(L"", ::mjx::format_args{}), L"");
-            EXPECT_EQ(::mjx::format_string(L"", ::mjx::format_args{}), L"");
-            EXPECT_EQ(::mjx::format_string(L"", ::mjx::format_args{}), L"");
+            EXPECT_EQ(::mjx::format_string(L"", format_args{}), L"");
+            EXPECT_EQ(::mjx::format_string(L"", format_args{}), L"");
+            EXPECT_EQ(::mjx::format_string(L"", format_args{}), L"");
+            EXPECT_EQ(::mjx::format_string(L"", format_args{}), L"");
+            EXPECT_EQ(::mjx::format_string(L"", format_args{}), L"");
+            EXPECT_EQ(::mjx::format_string(L"", format_args{}), L"");
+            EXPECT_EQ(::mjx::format_string(L"", format_args{}), L"");
+            EXPECT_EQ(::mjx::format_string(L"", format_args{}), L"");
+            EXPECT_EQ(::mjx::format_string(L"", format_args{}), L"");
+            EXPECT_EQ(::mjx::format_string(L"", format_args{}), L"");
         }
 
         TEST(string_fmt, format_invalid) {
@@ -218,4 +218,4 @@ namespace mjx {
     } // namespace test
 } // namespace mjx
 
-#endif // _TEST_UNIT_ULS_STRING_FMT_HPP_
+#endif // _TEST_UNIT_UMLS_STRING_FMT_HPP_
