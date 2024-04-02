@@ -46,7 +46,7 @@ namespace mjx {
 
     template <class... _Types>
     format_args make_format_args(_Types&&... _Vals) {
-        static_assert(::std::conjunction_v<::std::is_constructible_v<unicode_string_view, _Types>...>,
+        static_assert(::std::conjunction_v<::std::is_constructible<unicode_string_view, _Types>...>,
             "All types must be convertible to unicode_string_view");
         format_args _Args;
         _Args.reserve(sizeof...(_Types)); // reserve space for arguments
