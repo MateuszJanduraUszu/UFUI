@@ -53,6 +53,7 @@ namespace mjx {
         unicode_string get_message(const utf8_string_view _Id, const format_args& _Args = format_args{}) const;
 
     private:
+#pragma warning(suppress : 4251) // C4251: unique_smart_ptr needs to have dll-interface
         unique_smart_ptr<umls_impl::_Message_catalog> _Myimpl;
     };
 } // namespace mjx
