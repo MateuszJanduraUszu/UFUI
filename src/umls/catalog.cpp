@@ -75,7 +75,7 @@ namespace mjx {
         }
 
         const auto* const _Entry = _Myimpl->_Table._Find_message(umls_impl::_Hash_message_id(_Id));
-        if (!_Entry) { // message not present, break
+        if (!_Entry) { // message not found, break
             return unicode_string{};
         }
 
