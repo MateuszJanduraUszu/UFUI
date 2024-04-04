@@ -14,10 +14,8 @@ namespace mjx {
     message_catalog::message_catalog(message_catalog&& _Other) noexcept
         : _Myimpl(_Other._Myimpl.release()) {}
 
-    message_catalog::message_catalog(const path& _Target) : _Myimpl(nullptr) {
-        // not implemented yet
-        (void) _Target;
-    }
+    message_catalog::message_catalog(const path& _Target)
+        : _Myimpl(::mjx::create_object<umls_impl::_Message_catalog>(_Target)) {}
 
     message_catalog::~message_catalog() noexcept {
         close();
@@ -42,9 +40,12 @@ namespace mjx {
     }
 
     bool message_catalog::open(const path& _Target) {
-        // not implemented yet
-        (void) _Target;
-        return false;
+        if (is_open()) { // some catalog is already open, break
+            return false;
+        }
+
+        _Myimpl.reset(::mjx::create_object<umls_impl::_Message_catalog>(_Target));
+        return _Myimpl->_Valid();
     }
 
     const unicode_string& message_catalog::language() const noexcept {
