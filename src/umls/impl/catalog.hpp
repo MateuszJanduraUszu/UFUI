@@ -97,6 +97,15 @@ namespace mjx {
             };
 #pragma pack(pop)
 
+            _Umc_lookup_table() noexcept : _Myentries(nullptr), _Mysize(0), _Myoff(0) {}
+
+            ~_Umc_lookup_table() noexcept {
+                _Destroy();
+            }
+
+            _Umc_lookup_table(const _Umc_lookup_table&)            = delete;
+            _Umc_lookup_table& operator=(const _Umc_lookup_table&) = delete;
+
             size_t _Size() const noexcept {
                 return _Mysize;
             }
