@@ -18,7 +18,7 @@ namespace mjx {
         class _Message_catalog;
     } // namespace umls_impl
 
-    class _UMLS_API message_catalog {
+    class _UMLS_API message_catalog { // stores translated messages
     public:
         message_catalog() noexcept;
         message_catalog(message_catalog&& _Other) noexcept;
