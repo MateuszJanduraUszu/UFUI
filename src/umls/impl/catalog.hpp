@@ -75,7 +75,7 @@ namespace mjx {
             }
 
             void _Resize(const size_t _New_size) {
-                _Destroy(); // destroy the old blob
+                _Destroy(); // destroy the existing blob
                 _Mydata = ::mjx::allocate_object_array<byte_t>(_New_size);
                 _Mysize = _New_size;
             }
