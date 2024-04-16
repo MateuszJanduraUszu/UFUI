@@ -49,8 +49,14 @@ namespace mjx {
         // checks whether the catalog has a message
         bool has_message(const utf8_string_view _Id) const noexcept;
 
+        struct message_retrieval_result {
+            unicode_string message;
+            bool retrieved;
+        };
+
         // retrieves a message from the catalog
-        unicode_string get_message(const utf8_string_view _Id, const format_args& _Args = format_args{}) const;
+        message_retrieval_result get_message(
+            const utf8_string_view _Id, const format_args& _Args = format_args{}) const;
 
     private:
 #pragma warning(suppress : 4251) // C4251: unique_smart_ptr needs to have dll-interface
