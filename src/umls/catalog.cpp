@@ -69,14 +69,15 @@ namespace mjx {
         return _Myimpl->_Table._Find_message(umls_impl::_Hash_message_id(_Id)) != nullptr;
     }
 
-    unicode_string message_catalog::get_message(const utf8_string_view _Id, const format_args& _Args) const {
+    message_catalog::message_retrieval_result message_catalog::get_message(
+        const utf8_string_view _Id, const format_args& _Args) const {
         if (!is_open()) { // invalid catalog, break
-            return unicode_string{};
+            return message_retrieval_result{unicode_string{}, false};
         }
-
+        
         const auto* const _Entry = _Myimpl->_Table._Find_message(umls_impl::_Hash_message_id(_Id));
         if (!_Entry) { // message not found, break
-            return unicode_string{};
+            return message_retrieval_result{unicode_string{}, false};
         }
 
 #ifdef _M_X64
@@ -88,13 +89,19 @@ namespace mjx {
 #endif // _M_X64
         unicode_string _Msg;
         if (!_Myimpl->_Blob._Fetch_message(_Msg, _Off, _Len)) { // failed to fetch the message, break
-            return unicode_string{};
+            return message_retrieval_result{unicode_string{}, false};
         }
 
         if (::mjx::is_formattable(_Msg)) { // formattable message, try to format it
-            return ::mjx::format_string(_Msg, _Args);
+            // Note: For a message to be formattable, it must contain at least one format specifier
+            //       and be non-empty. An empty formatted message typically indicates that something
+            //       went wrong during formatting. By checking for an empty message, we can detect
+            //       such issue and appropriately set the message_retrieval_result::retrieved member.
+            _Msg                  = ::mjx::format_string(_Msg, _Args);
+            const bool _Not_empty = !_Msg.empty();
+            return message_retrieval_result{::std::move(_Msg), _Not_empty};
         } else { // not formattable message, leave it as is
-            return ::std::move(_Msg);
+            return message_retrieval_result{::std::move(_Msg), true};
         }
     }
 } // namespace mjx
