@@ -170,8 +170,10 @@ namespace mjx {
             return;
         }
 
-        if (!_Writer._Write_catalogs(_Catalogs)) {
-            rtlog(L"Error: Failed to write the UTS catalogs.");
+        if (_Count > 0) { // some catalogs specified, write them
+            if (!_Writer._Write_catalogs(_Catalogs)) {
+                rtlog(L"Error: Failed to write the UTS catalogs.");
+            }
         }
     }
 
