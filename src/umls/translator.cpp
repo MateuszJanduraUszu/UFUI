@@ -137,8 +137,8 @@ namespace mjx {
     void translator::_Init() {
         // load a catalog based on user preferrence
         umls_impl::_Translator_init_lcids_iterator _Iter(_Myset);
-        for (const uint32_t _Lcid : _Iter) {
-            const unicode_string_view _Catalog = _Find_catalog_name_by_lcid(_Lcid);
+        for (unicode_string_view _Catalog; const uint32_t _Lcid : _Iter) {
+            _Catalog = _Find_catalog_name_by_lcid(_Lcid);
             if (!_Catalog.empty() && use_catalog(_Catalog)) { // loaded a catalog, break
                 break;
             }
