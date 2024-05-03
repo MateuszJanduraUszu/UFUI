@@ -122,6 +122,11 @@ namespace mjx {
         private:
             static constexpr size_t _Max_elem_count = 4;
             
+            void _Insert_lcid(const uint32_t _Lcid) noexcept {
+                // insert _Lcid to _Myelems, assumes that it is unique
+                _Myelems[_Mycount++] = _Lcid;
+            }
+
             void _Insert_lcid_if_unique(const uint32_t _Lcid) noexcept {
                 // insert _Lcid to _Myelems if it is not already present, otherwise ignore it
                 for (size_t _Idx = 0; _Idx < _Mycount; ++_Idx) {
@@ -130,14 +135,14 @@ namespace mjx {
                     }
                 }
 
-                _Myelems[_Mycount++] = _Lcid;
+                _Insert_lcid(_Lcid); // the given LCID is unique, insert it
             }
 
             void _Init(const translator_settings& _Settings) noexcept {
                 // Note: The order of LCIDs is fixed and defined as follows: user-preferred, user-default,
                 //       system-preferred, and system-default. To prevent multiple attempts to load the same
                 //       catalog, the LCIDs are filtered to retain only unique ones.
-                _Insert_lcid_if_unique(_Settings.preferred_lcid());
+                _Insert_lcid(_Settings.preferred_lcid()); // always unique
                 _Insert_lcid_if_unique(_Settings.default_lcid());
                 _Insert_lcid_if_unique(::mjx::system_preferred_lcid());
                 _Insert_lcid_if_unique(::mjx::system_default_lcid());
